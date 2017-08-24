@@ -62,24 +62,6 @@ class ErrorHandler
             }
         }
         
-        /*
-        if ($exception instanceof NotFoundException) {
-            return $response->withJson(['errors' => [
-                'message' => $exception->getMessage()
-            ]], 404);
-        }
-        if ($exception instanceof UnauthorizedException) {
-            return $response->withJson(['errors' => [
-                'message' => $exception->getMessage()
-            ]], 401);
-        }
-        */
-        
-        /*
-        if (extension_loaded('newrelic')) {
-            newrelic_notice_error($exception->getMessage(), $exception);
-        }
-        */
         $this->logger->error($exception->getMessage());
         return $this->serverErrorResponseHandler->handle($response, $exception);
         

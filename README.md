@@ -34,3 +34,15 @@ $config['responseHandlers'] = function(ContainerInterface $c) {
 ```
 
 You can override: responseHandlers, serverErrorResponseImpl, notAllowedHandlerImpl & notFoundHandlerImpl
+
+
+Define 404 exceptions
+---------------------
+
+```php
+$containerDefinition['notFoundHandlerImpl'] = function (ContainerInterface $c) {
+    $handler = $c->get(NotFoundJsonResponseHandler::class);
+    $handler->addNotFoundImplementation(OwnNotFoundException::class);
+    return $handler;
+};
+```

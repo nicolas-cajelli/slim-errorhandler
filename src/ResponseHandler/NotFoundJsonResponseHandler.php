@@ -32,9 +32,9 @@ class NotFoundJsonResponseHandler implements ResponseHandlerInterface, NotFoundH
     
     /**
      * @param string $notFoundImplementation
-     * @return NotFoundJsonResponseHandler
+     * @return NotFoundHandlerInterface
      */
-    public function addNotFoundImplementation(string $notFoundImplementation): NotFoundJsonResponseHandler
+    public function addNotFoundImplementation(string $notFoundImplementation): NotFoundHandlerInterface
     {
         $this->notFoundImplementations[] = $notFoundImplementation;
         return $this;
